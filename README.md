@@ -81,22 +81,6 @@ Primer:
 
 ---
 
-# Pokretanje projekta
-
-## Instalacija
-
-```bash
-npm install
-```
-
-## Pokretanje aplikacije
-
-```bash
-npx expo start
-```
-
----
-
 # Firebase
 
 Potrebno je podesiti Firebase projekat i dodati konfiguraciju u:
