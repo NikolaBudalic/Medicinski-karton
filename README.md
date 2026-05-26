@@ -1,44 +1,124 @@
-Projekat koji se radi na vežbama iz predmeta Mobilne Tehnologije, studentska godina 2025/26.
+# Medicinski Karton – Mobilna aplikacija
 
-Potrebno je klonirati repozitorijum na svoj računar (preporučujem korišćenje GitHub Desktop aplikacije), ili download-ovati u vidu zip fajla. U slučaju da se koristi emulator, neophodno je imati instaliran i podešen Android Studio, a u slučaju da se koristi fizički mobilni telefon, aplikacija Expo Go omogućava izvršavanje na njemu.
+Mobilna aplikacija razvijena u okviru predmeta **Razvoj mobilnih aplikacija**.
+Aplikacija omogućava upravljanje medicinskim kartonima pacijenata kroz različite korisničke uloge: administrator, lekar i pacijent.
 
-Kada se preuzme izvorni kod, u komandnoj liniji Visual Studio Code-a (view->terminal) pokrenuti komandu za instaliranje svih zavisnosti - "npm install" (bez navodnika, naravno). Ova komanda će instalirati sve zavisnosti koje se nalaze u package.json datoteci.
+## Tehnologije
 
-Takođe, možete kreirati novi projekat kod sebe na računaru, i samo određene fajlove (ili njihove delove) preuzeti iz ovog projekta.
+* React Native
+* Expo
+* JavaScript
+* Firebase Authentication
+* Firebase Firestore
+* Redux Toolkit
+* Expo Router
 
-Ako naiđete na probleme, javite mi se putem mejla ili pitajte na vežbama.
+---
 
-N
+# Funkcionalnosti aplikacije
 
-## Objavljivanje na GitHub
+## Pacijent
 
-Ako želite da objavite ovaj projekat na GitHub (repozitorijum nazvan "Medicinski karton"), pratite ove korake lokalno u terminalu. Zamenite `USERNAME` sa vašim GitHub korisničkim imenom i `Medicinski-karton` sa tačnim imenom repozitorijuma ako je drugačije.
+* Registracija i prijava
+* Pregled ličnog medicinskog kartona
+* Pregled terapija i zakazanih kontrola
+* Izmena profila
+* Dark / Light tema
 
-- Inicijalizujte git (ako već nije):
+## Lekar
+
+* Pregled svojih pacijenata
+* Dodavanje pacijenata
+* Kreiranje i izmena medicinskih pregleda
+* Upravljanje terapijama
+* Kalendar pregleda i kontrola
+* Pregled istorije kartona pacijenta
+
+## Administrator
+
+* Upravljanje lekarima
+* Dodavanje i brisanje lekara
+* Pregled svih pacijenata
+* Upravljanje korisnicima sistema
+
+---
+
+# Struktura projekta
 
 ```bash
-git init
-git add -A
-git commit -m "Initial commit"
+app/
+assets/
+firebase/
+services/
+store/
+utils/
 ```
 
-- Dodajte udaljeni repozitorijum i push-ujte na `main` granu:
+* `app/` – ekran aplikacije i navigacija
+* `firebase/` – Firebase konfiguracija
+* `services/` – komunikacija sa Firestore bazom
+* `store/` – Redux Toolkit state management
+* `utils/` – pomoćne funkcije i teme aplikacije
+
+---
+
+# Redux Toolkit
+
+U projektu je korišćen Redux Toolkit za centralizovano upravljanje stanjem aplikacije.
+
+Implementirani su:
+
+* `createAsyncThunk`
+* globalni state
+* asinhrono učitavanje podataka
+* CRUD operacije nad lekarima
+
+Primer:
+
+* učitavanje svih lekara
+* dodavanje lekara
+* brisanje lekara
+
+---
+
+# Pokretanje projekta
+
+## Instalacija
 
 ```bash
-# Ako ste već kreirali repozitorijum na GitHub-u putem veb interfejsa:
-git remote add origin https://github.com/USERNAME/Medicinski-karton.git
-git branch -M main
-git push -u origin main
+npm install
 ```
 
-- Alternativa koristeći `gh` CLI (ako imate instaliran `gh` i prijavljeni ste):
+## Pokretanje aplikacije
 
 ```bash
-gh repo create USERNAME/Medicinski-karton --public --source=. --remote=origin --push
+npx expo start
 ```
 
-- Napomena o imenu repozitorijuma: GitHub obično koristi bez razmaka u URL-u (umesto razmaka se često koristi `-`). Ako ste kreirali repozitorijum sa razmakom, proverite tačan URL na GitHub stranici repozitorijuma i koristite ga u `git remote add` komandi.
+---
 
-- Dodatno: u [`.gitignore`](.gitignore) sam dodao tipične stavke koje ne treba slati na GitHub (npr. `node_modules`, `.env`).
+# Firebase
 
-Ako želite, mogu sada da pokrenem naredbe `git` u vašem terminalu (push će vam možda tražiti lozinku ili 2FA). Želite li da to uradim? Ili da vam pomognem sa tačnim URL-om repozitorijuma (pošaljite vaš GitHub username)?
+Potrebno je podesiti Firebase projekat i dodati konfiguraciju u:
+
+```bash
+firebase/config.js
+```
+
+Aplikacija koristi:
+
+* Firebase Authentication
+* Cloud Firestore
+
+---
+
+# Autori
+
+Student: Nikola Budalić
+Predmet: Razvoj mobilnih aplikacija
+
+---
+
+# Napomena
+
+Aplikacija je razvijena u edukativne svrhe kao projekat za fakultetski predmet.
